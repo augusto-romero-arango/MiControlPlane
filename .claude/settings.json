@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "augusto-romero-arango-harness": {
+      "source": {
+        "source": "github",
+        "repo": "augusto-romero-arango/eda-evsourcing-azure-harness"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "mefisto@augusto-romero-arango-harness": true
+  }
+}

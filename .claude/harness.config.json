@@ -1,0 +1,18 @@
+{
+  "projectName": "MiControlPlane",
+  "namespacePrefix": "MiControlPlane",
+  "solutionFile": "MiControlPlane.slnx",
+  "infraResourceGroupPrefix": "rg-micontrolplane",
+  "terraformStateStorage": "stmcptfstatedev",
+  "githubServicePrincipalName": "github-micontrolplane-ci",
+  "appInsightsApp": "micontrolplane-dev-ai",
+  "domainLabels": [
+    "onboarding",
+    "tenant-provisioning",
+    "user-management",
+    "billing",
+    "tenant-management",
+    "contracts"
+  ],
+  "repoSlug": "augusto-romero-arango/MiControlPlane"
+}
