@@ -1,0 +1,115 @@
+# .gitignore — MiControlPlane
+# Stack: .NET 10 / Azure Functions (isolated worker), Marten + Wolverine (PostgreSQL),
+#        Azure Service Bus, xUnit v3, Terraform, GitHub Actions. IDE: JetBrains Rider.
+# Basado en las plantillas oficiales de github/gitignore (VisualStudio, Terraform,
+# JetBrains, macOS) ajustadas a este proyecto.
+
+# ─────────────────────────────────────────────────────────────────────────────
+# .NET / C# — artefactos de compilación
+# ─────────────────────────────────────────────────────────────────────────────
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Ll]og/
+[Ll]ogs/
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+[Bb]uild/
+bld/
+artifacts/
+project.lock.json
+project.fragment.lock.json
+
+# Archivos de usuario de Visual Studio / Rider
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+
+# Resultados y cobertura de tests
+[Tt]est[Rr]esult*/
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+*.received.*
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Azure Functions (isolated worker) y emuladores locales
+# ─────────────────────────────────────────────────────────────────────────────
+# local.settings.json contiene connection strings/secretos: NO se versiona.
+local.settings.json
+.azurefunctions/
+# Azurite (emulador de Storage)
+__azurite_db*__.json
+__blobstorage__/
+__queuestorage__/
+.debug/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Terraform (infra/)
+# ─────────────────────────────────────────────────────────────────────────────
+**/.terraform/*
+*.tfstate
+*.tfstate.*
+*.tfplan
+tfplan
+crash.log
+crash.*.log
+# *.tfvars y *.tfvars.json pueden contener secretos. Si necesitas versionar uno
+# concreto (p. ej. valores no sensibles por ambiente), añádelo con `git add -f`.
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraformrc
+terraform.rc
+# El lock de dependencias SÍ se versiona (recomendación de HashiCorp).
+!.terraform.lock.hcl
+
+# ─────────────────────────────────────────────────────────────────────────────
+# JetBrains Rider / ReSharper
+# ─────────────────────────────────────────────────────────────────────────────
+# Se ignora la config local del IDE (rutas y estado por máquina). El proyecto se
+# define por el .slnx, no por .idea/. Para compartir run configs, des-ignóralas
+# selectivamente con `git add -f .idea/runConfigurations/...`.
+.idea/
+*.sln.iml
+# ReSharper / Rider: el .DotSettings de equipo se versiona; el .user no.
+*.DotSettings.user
+_ReSharper*/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# macOS
+# ─────────────────────────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Claude Code / harness Mefisto
+# ─────────────────────────────────────────────────────────────────────────────
+# Estado runtime del pipeline (rutas absolutas + log): machine-specific.
+.claude/pipeline/
+# Overrides locales de Claude Code (settings.json y harness.config.json SÍ se versionan).
+.claude/settings.local.json
