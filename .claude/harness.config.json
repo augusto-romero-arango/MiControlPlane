@@ -3,7 +3,8 @@
   "namespacePrefix": "MiControlPlane",
   "solutionFile": "MiControlPlane.slnx",
   "infraResourceGroupPrefix": "rg-micontrolplane",
-  "terraformStateStorage": "stmcptfstatedev",
+  "terraformStateStorage": "stmcptfstatedev01",
+  "azureLocation": "eastus2",
   "githubServicePrincipalName": "github-micontrolplane-ci",
   "appInsightsApp": "micontrolplane-dev-ai",
   "domainLabels": [
