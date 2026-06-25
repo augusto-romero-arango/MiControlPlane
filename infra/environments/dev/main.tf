@@ -41,7 +41,9 @@ module "service_bus" {
 # Trade-off conocido: Function Apps en eastus2 cruzan region hacia Postgres en centralus.
 module "postgresql" {
   source                 = "../../modules/postgresql"
-  name                   = "psql-${local.prefix_func}-${var.environment}"
+  # Nombre global-unico (DNS publico): "psql-mcp-dev" ya estaba tomado en Azure.
+  # Se usa el prefijo largo, consistente con rg-/sb-${local.prefix}.
+  name                   = "psql-${local.prefix}"
   resource_group_name    = module.resource_group.name
   location               = "centralus"
   administrator_login    = "pgadmin"
