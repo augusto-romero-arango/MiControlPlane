@@ -73,10 +73,12 @@ __queuestorage__/
 tfplan
 crash.log
 crash.*.log
-# *.tfvars y *.tfvars.json pueden contener secretos. Si necesitas versionar uno
-# concreto (p. ej. valores no sensibles por ambiente), añádelo con `git add -f`.
+# *.tfvars y *.tfvars.json pueden contener secretos. Por defecto se ignoran.
+# Los terraform.tfvars de cada ambiente solo contienen valores NO sensibles
+# (subscription_id, environment, location) y se versionan explicitamente.
 *.tfvars
 *.tfvars.json
+!infra/environments/*/terraform.tfvars
 override.tf
 override.tf.json
 *_override.tf
